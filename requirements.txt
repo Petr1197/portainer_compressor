@@ -1,5 +1,3 @@
 watchdog
 handbrake-cli
 python-dotenv
-Pillow
-requests
