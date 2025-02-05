@@ -1,0 +1,20 @@
+
+services:
+  portainer-compressor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+      - /media/extdrive/PlexMedia/movies/input:/app/input
+      - /media/extdrive/PlexMedia/movies/output:/app/output
+    environment:
+      - INPUT_DIRECTORY=/app/input
+      - OUTPUT_DIRECTORY=/app/output
+      - HANDBRAKE_PATH=/usr/bin/HandBrakeCLI
+      - VIDEO_EXTENSIONS=.mkv
+      - COMPRESSION_PRESET=H.264 MKV 1080p30
+      - COMPRESSION_QUALITY=22
+      - COMPRESSION_AUDIO=all
+      - COMPRESSION_SUBTITLE=all
+    restart: unless-stopped
